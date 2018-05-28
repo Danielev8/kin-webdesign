@@ -13,7 +13,7 @@ class GraphicDesign extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://res.cloudinary.com/danniscloud/image/list/graphicdesign.json')
+        axios.get('https://res.cloudinary.com/danniscloud/image/list/graphicdesign.json')
             .then(res => {
                 this.setState({ gallery: res.data.resources });
             })

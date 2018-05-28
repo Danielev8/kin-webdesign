@@ -14,8 +14,8 @@ class MixedWork extends Component {
 
     componentDidMount() {
         axios.all([
-            axios.get('http://res.cloudinary.com/danniscloud/image/list/graphicdesign.json'),
-            axios.get('http://res.cloudinary.com/danniscloud/image/list/Photography.json')
+            axios.get('https://res.cloudinary.com/danniscloud/image/list/graphicdesign.json'),
+            axios.get('https://res.cloudinary.com/danniscloud/image/list/Photography.json')
         ])
             .then(axios.spread((graphicdesign, photography) => {
                 this.setState({ gallery: [...graphicdesign.data.resources, ...photography.data.resources] });

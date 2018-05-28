@@ -13,7 +13,7 @@ class Photography extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://res.cloudinary.com/danniscloud/image/list/Photography.json')
+        axios.get('https://res.cloudinary.com/danniscloud/image/list/Photography.json')
             .then(res => {
                 this.setState({ gallery: res.data.resources });
             })

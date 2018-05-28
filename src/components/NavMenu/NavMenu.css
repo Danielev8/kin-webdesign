@@ -148,7 +148,7 @@ i {
 
     #scrollToTop {
         position: absolute;
-        bottom: -20px;
+        bottom: -5vw;
         width: 10vw;
         height: 10vw;
         margin: 0 auto;

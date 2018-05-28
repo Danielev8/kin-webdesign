@@ -1,0 +1,28 @@
+.container {
+    display: relative;
+    width: 57vw;
+    margin: 0 auto;
+    min-height: 90vh;
+    padding-top: 10vh;
+}
+
+h3 {
+    font-size: 3em;
+    text-align: center;
+    color: #47525E;
+    text-transform: uppercase;
+    font-weight: inherit;
+}
+
+@media (max-width: 767px) {
+    .container {
+        width: 85vw;
+        margin: 0 auto;
+        min-height: 90vh;
+        padding-top: 10vh;
+    }
+
+    h3 {
+        font-size: 1.3em;
+    }
+}

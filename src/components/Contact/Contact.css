@@ -1,0 +1,86 @@
+form {
+    text-align: center;
+    width: 65%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 1em;
+    grid-column-gap: 1.5em;
+    grid-template-areas: 
+        "a b"
+        "c c"
+        "d d"
+        "e e";
+    align-items: center;
+}
+
+form input, form textarea {
+    padding: 0.5em;
+    padding-left: 1em;
+    border-radius: 5px;
+    font: inherit;
+    
+    border: 1px solid #9BA6B5;
+    background-color: #E1E1E1;
+}
+
+form textarea {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 20em;
+    box-sizing: border-box;
+}
+
+#name {
+    grid-area: a;
+}
+
+#email {
+    grid-area: b;
+}
+
+#subject {
+    grid-area: c;
+}
+
+#message {
+    grid-area: d;
+    resize: none;
+}
+
+#submit {
+    grid-area: e;
+    background-color: #FA2F9E;
+    color: white;
+    padding: 0.5em;
+    font-size: 1.2em !important;
+    font: inherit;
+    border: none;
+}
+
+.modalStyle {
+    padding: 1em;
+    height: auto;
+    width: auto;
+    background-color: green;
+}
+
+.modalStyle h2 {
+    font-size: 1em;
+}
+
+@media (max-width: 767px) {
+    form {
+        width: 100%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-row-gap: 1em;
+        grid-column-gap: 1.5em;
+        grid-template-areas: 
+            "a"
+            "b"
+            "c"
+            "d"
+            "e";
+        align-items: center;
+    }
+}

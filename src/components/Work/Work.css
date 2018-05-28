@@ -41,6 +41,10 @@ h3 {
     background-size: 5vw;
 }
 
+.imageContainer:hover {
+    opacity: 0.5;
+}
+
 
 @media (max-width: 767px) {
 

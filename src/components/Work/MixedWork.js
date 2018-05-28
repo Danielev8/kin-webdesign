@@ -19,6 +19,23 @@ class MixedWork extends Component {
         ])
             .then(axios.spread((graphicdesign, photography) => {
                 this.setState({ gallery: [...graphicdesign.data.resources, ...photography.data.resources] });
+                function shuffle(array) {
+                    var m = array.length, t, i;
+        
+                    while (m) {
+                        i = Math.floor(Math.random() * m--);
+                        t = array[m];
+                        array[m] = array[i];
+                        array[i] = t;
+                    }
+        
+                    return array;
+                }
+        
+                let shuffledArray = shuffle([...this.state.gallery]);
+                shuffledArray = shuffledArray.slice(0,24);
+
+                this.setState({gallery: shuffledArray});
             }));
     }
 

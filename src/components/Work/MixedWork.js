@@ -20,7 +20,6 @@ class MixedWork extends Component {
             .then(axios.spread((graphicdesign, photography) => {
                 this.setState({ gallery: [...graphicdesign.data.resources, ...photography.data.resources] });
             }));
-        console.log(this.state.gallery);
     }
 
     render() {

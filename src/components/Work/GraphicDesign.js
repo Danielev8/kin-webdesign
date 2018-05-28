@@ -17,7 +17,6 @@ class GraphicDesign extends Component {
             .then(res => {
                 this.setState({ gallery: res.data.resources });
             })
-        console.log(this.state.gallery);
     }
 
     render() {          

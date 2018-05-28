@@ -129,25 +129,25 @@ i {
 
 
 @media (max-width: 767px) {
-  .container {
-    padding: 15vh 0;
-    box-sizing: border-box;
-    grid-template-columns: 1fr;
-    grid-auto-rows: 25%;
-    grid-template-areas: 
-    "a"
-    "b"
-    "c"
-    "d";
-  }
+    .container {
+        padding: 15vh 0;
+        box-sizing: border-box;
+        grid-template-columns: 1fr;
+        grid-auto-rows: 25%;
+        grid-template-areas: 
+        "a"
+        "b"
+        "c"
+        "d";
+    }
 
-  h1, h2 {
-      font-size: 1.3em;
-  }
+    h1, h2 {
+        font-size: 1.3em;
+    } 
 
     #scrollToTop {
         position: absolute;
-        bottom: -5vw;
+        bottom: -20px;
         width: 10vw;
         height: 10vw;
         margin: 0 auto;

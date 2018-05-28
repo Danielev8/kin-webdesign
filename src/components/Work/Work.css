@@ -8,6 +8,7 @@
     align-items: center;
     font-size: 1.2em;
     color: #47525E;
+    margin-bottom: 2em;
 }
 
 .photography {
@@ -36,7 +37,7 @@ h3 {
     height: 9vw;
     width: 100%;
     object-fit: cover;
-    background: transparent url('https://www.quodfinancial.com/wp-content/themes/pro-child/QUOD-Diagram/loading_spinner.gif') center no-repeat;
+    background: transparent url('./loading_spinner.gif') center no-repeat;
     background-size: 5vw;
 }
 

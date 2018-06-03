@@ -1,3 +1,12 @@
+.aboutAreas {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-areas:
+    "a a a a a a a a a a a a"
+    "b b b b b b c c c c c c";
+}
+
+
 p {
     line-height: 1.5em;
     margin: 0 auto;
@@ -17,4 +26,29 @@ img.profilepic {
     
     background: transparent url('https://www.quodfinancial.com/wp-content/themes/pro-child/QUOD-Diagram/loading_spinner.gif') center no-repeat;
     background-size: 5vw;
+}
+
+h4 {
+    text-align: center;
+    color: #47525E;
+}
+
+.basicInfo {
+    grid-area: a;
+}
+
+.facts {
+    grid-area: b;
+}
+
+.programmes {
+    grid-area: c;
+}
+
+hr {
+    margin: 0 50px;
+}
+
+li {
+    margin-left: 2vw;
 }

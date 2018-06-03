@@ -21,7 +21,7 @@ class Contact extends Component {
 
     render() {
 
-        var myBigGreenDialog = {
+        var myDialog = {
             'min-height': '1em',
             top: '65%',
             'font-size': '1.5em'
@@ -33,21 +33,17 @@ class Contact extends Component {
                 <form id="contactForm">
                     <input type="text" id={classes.name} placeholder="Your Name" />
                     <input type="text" id={classes.email} placeholder="Your Email" />
-
-
                     <input type="text" id={classes.subject} placeholder="Subject" />
-
                     <textarea id={classes.message} placeholder="Type your message here..." />
 
                     <button type="button" id={classes.submit} onClick={() => this.showSent.show()}>Send</button>
                 </form>
 
-
                 <SkyLight
                     hideOnOverlayClicked
                     ref={ref => this.showSent = ref}
                     afterClose={this._executeAfterModalClose}
-                    dialogStyles={myBigGreenDialog}>
+                    dialogStyles={myDialog}>
                     Thank you, I have received your message and will get back to you shortly.
                 </SkyLight>
 

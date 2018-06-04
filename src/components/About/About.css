@@ -52,3 +52,12 @@ hr {
 li {
     margin-left: 2vw;
 }
+
+@media (max-width: 767px) {
+    .aboutAreas {
+    grid-template-areas:
+    "a a a a a a a a a a a a"
+    "b b b b b b b b b b b b"
+    "c c c c c c c c c c c c"
+    }
+}

@@ -33,7 +33,7 @@ h3 {
     grid-auto-rows: 9vw;
 }
 
-.imageContainer {
+.imageContainer img{
     height: 9vw;
     width: 100%;
     object-fit: cover;
@@ -59,11 +59,11 @@ h3 {
     .Gallery {
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 0.2em;
-        grid-auto-rows: 15vw;
+        grid-auto-rows: 18vw;
     }
 
-    .imageContainer {
-        height: 15vw;
+    .imageContainer img{
+        height: 18vw;
     }
 
     .workTypes {

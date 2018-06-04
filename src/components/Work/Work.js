@@ -3,7 +3,6 @@ import NavLink from '../NavMenu/NavLink';
 import { Route, Link, Switch } from 'react-router-dom';
 import scrollToComponent from 'react-scroll-to-component';
 import axios from 'axios';
-
 import Gallery from './Gallery';
 
 import classes from './Work.css';
@@ -43,11 +42,22 @@ class Work extends Component {
 
                 let shuffledArray = shuffle([...graphicdesign.data.resources, ...photography.data.resources]);
                 shuffledArray = shuffledArray.slice(0, 24);
+                shuffledArray = shuffledArray.map(data => {
+                        return ('https://res.cloudinary.com/danniscloud/image/upload/v1/' + data.public_id);
+                })
+
+                let photographyImages = photography.data.resources.map(data => {
+                    return ('https://res.cloudinary.com/danniscloud/image/upload/v1/' + data.public_id);
+                })
+
+                let graphicImages = graphicdesign.data.resources.map(data => {
+                    return ('https://res.cloudinary.com/danniscloud/image/upload/v1/' + data.public_id);
+                })
 
                 this.setState({
                     mixed: shuffledArray,
-                    photography: photography.data.resources,
-                    graphic: graphicdesign.data.resources
+                    photography: photographyImages,
+                    graphic: graphicImages
                 });
             }));
     }

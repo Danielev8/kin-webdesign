@@ -1,33 +1,97 @@
 import React, { Component } from 'react';
-import ModalImage from 'react-modal-image'
+
+import Lightbox from 'react-images';
 
 import classes from './Work.css';
 
 
 class Gallery extends Component {
 
-    state = {
-        gallery: this.props.images
-    }    
+    constructor() {
+        super();
+        this.state = {
+            currentImage: 0,
+            lightboximages: []
+        };
+        this.closeLightbox = this.closeLightbox.bind(this);
+        this.openLightbox = this.openLightbox.bind(this);
+        this.gotoNext = this.gotoNext.bind(this);
+        this.gotoPrevious = this.gotoPrevious.bind(this);
+        this.gotoImage = this.gotoImage.bind(this); 
+    }
+    
+    openLightbox(e){
+        this.setState({
+            currentImage: Number(e.currentTarget.dataset.id),
+            lightboxIsOpen: true,
+        });
+    }
+    closeLightbox() {
+        this.setState({
+            currentImage: 0,
+            lightboxIsOpen: false,
+        });
+    }
+    gotoPrevious() {
+        this.setState({
+            currentImage: this.state.currentImage - 1,
+        });
+    }
+    gotoNext() {
+        this.setState({
+            currentImage: this.state.currentImage + 1,
+        });
+    }
+
+    gotoImage(index){
+        this.setState({
+            currentImage: index
+        });
+    }
+
+    lightboximages() {
+        return (this.props.images.map(data => {
+            return (
+                { src: data }
+            )
+        }))
+    }
+
+    componentDidMount() {
+        this.setState( () => {
+            return {lightboximages: this.lightboximages()}
+        })
+    }
 
     render() {
-        return (
-            <div className={classes.Gallery}>
-                {
-                    this.state.gallery.map(data => {
-                        return (
 
-                            <div>
-                                <ModalImage
-                                    className={classes.imageContainer}
-                                    small={'https://res.cloudinary.com/danniscloud/image/upload/c_limit,h_350,w_350/v1/' + data.public_id}
-                                    large={'https://res.cloudinary.com/danniscloud/image/upload/v1/' + data.public_id}
-                                />
-                            </div>
-                        )
-                    })
-                }
-            </div>
+        console.log(this.state.lightboximages);
+
+        return (
+
+            <div>
+                <div className={classes.Gallery}>
+                    {
+                        this.props.images.map((data, index) => {
+                            return (
+                                <div key={index} className={classes.imageContainer} data-id={index} onClick={this.openLightbox.bind(this)} >
+                                    <img key={index} src={data} alt={"galleryPicNo" + index} />
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+                <Lightbox images={this.state.lightboximages}
+                    onClose={this.closeLightbox}
+                    onClickPrev={this.gotoPrevious}
+                    onClickNext={this.gotoNext}
+                    onClickThumbnail={this.gotoImage}
+                    currentImage={this.state.currentImage}
+                    isOpen={this.state.lightboxIsOpen}
+                    showThumbnails={true}
+                    backdropClosesModal={true}
+                />
+            </div >
         )
     }
 

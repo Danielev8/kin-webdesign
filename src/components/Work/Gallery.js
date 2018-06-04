@@ -11,16 +11,17 @@ class Gallery extends Component {
         super();
         this.state = {
             currentImage: 0,
+            thumbnailImages: [],
             lightboximages: []
         };
         this.closeLightbox = this.closeLightbox.bind(this);
         this.openLightbox = this.openLightbox.bind(this);
         this.gotoNext = this.gotoNext.bind(this);
         this.gotoPrevious = this.gotoPrevious.bind(this);
-        this.gotoImage = this.gotoImage.bind(this); 
+        this.gotoImage = this.gotoImage.bind(this);
     }
-    
-    openLightbox(e){
+
+    openLightbox(e) {
         this.setState({
             currentImage: Number(e.currentTarget.dataset.id),
             lightboxIsOpen: true,
@@ -43,7 +44,7 @@ class Gallery extends Component {
         });
     }
 
-    gotoImage(index){
+    gotoImage(index) {
         this.setState({
             currentImage: index
         });
@@ -52,34 +53,37 @@ class Gallery extends Component {
     lightboximages() {
         return (this.props.images.map(data => {
             return (
-                { src: data }
+                { src: 'https://res.cloudinary.com/danniscloud/image/upload/v1/' + data.public_id }
+            )
+        }))
+    }
+
+    thumbnailImages() {
+        return (this.props.images.map((data, index) => {
+            return (
+                <div key={index} className={classes.imageContainer} data-id={index} onClick={this.openLightbox.bind(this)} >
+                    <img key={index} src={'https://res.cloudinary.com/danniscloud/image/upload/c_limit,h_350,w_350/v1/' + data.public_id} alt={"galleryPicNo" + index} />
+                </div>
             )
         }))
     }
 
     componentDidMount() {
-        this.setState( () => {
-            return {lightboximages: this.lightboximages()}
+        this.setState(() => {
+            return {
+                lightboximages: this.lightboximages(),
+                thumbnailImages: this.thumbnailImages()
+            }
         })
     }
 
     render() {
 
-        console.log(this.state.lightboximages);
-
         return (
 
             <div>
                 <div className={classes.Gallery}>
-                    {
-                        this.props.images.map((data, index) => {
-                            return (
-                                <div key={index} className={classes.imageContainer} data-id={index} onClick={this.openLightbox.bind(this)} >
-                                    <img key={index} src={data} alt={"galleryPicNo" + index} />
-                                </div>
-                            )
-                        })
-                    }
+                    {this.state.thumbnailImages}
                 </div>
                 <Lightbox images={this.state.lightboximages}
                     onClose={this.closeLightbox}
@@ -90,6 +94,7 @@ class Gallery extends Component {
                     isOpen={this.state.lightboxIsOpen}
                     showThumbnails={true}
                     backdropClosesModal={true}
+                    showCloseButton={false}
                 />
             </div >
         )

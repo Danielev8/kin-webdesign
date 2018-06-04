@@ -48,11 +48,11 @@ class About extends Component {
                         <h4> Programmes I use </h4>
                         <hr />
                         <ul>
-                            <li>illustrates </li>
+                            <li>Illustrator</li>
                             <li>InDesign</li>
-                            <li> windows office</li>
-                            <li>flash/animate cc</li>
-                            <li>paint tool SAI</li>
+                            <li>Windows Office Suite</li>
+                            <li>Flash/Animate CC</li>
+                            <li>Paint Tool SAI</li>
 
                         </ul>
 

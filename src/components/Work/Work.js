@@ -26,7 +26,7 @@ class Work extends Component {
             axios.get('https://res.cloudinary.com/danniscloud/image/list/graphicdesign.json'),
             axios.get('https://res.cloudinary.com/danniscloud/image/list/photography.json')
         ])
-            .then(axios.spread((graphicdesign, photography) => {
+            .then(axios.spread((graphicimages, photographyimages) => {
                 function shuffle(array) {
                     var m = array.length, t, i;
 
@@ -40,24 +40,13 @@ class Work extends Component {
                     return array;
                 }
 
-                let shuffledArray = shuffle([...graphicdesign.data.resources, ...photography.data.resources]);
+                let shuffledArray = shuffle([...graphicimages.data.resources, ...photographyimages.data.resources]);
                 shuffledArray = shuffledArray.slice(0, 24);
-                shuffledArray = shuffledArray.map(data => {
-                        return ('https://res.cloudinary.com/danniscloud/image/upload/v1/' + data.public_id);
-                })
-
-                let photographyImages = photography.data.resources.map(data => {
-                    return ('https://res.cloudinary.com/danniscloud/image/upload/v1/' + data.public_id);
-                })
-
-                let graphicImages = graphicdesign.data.resources.map(data => {
-                    return ('https://res.cloudinary.com/danniscloud/image/upload/v1/' + data.public_id);
-                })
 
                 this.setState({
                     mixed: shuffledArray,
-                    photography: photographyImages,
-                    graphic: graphicImages
+                    photography: photographyimages.data.resources,
+                    graphic: graphicimages.data.resources
                 });
             }));
     }
